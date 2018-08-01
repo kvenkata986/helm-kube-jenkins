@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    release: {{ .Release.Name }}
+  labels: 
+    app: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx-deployment
+  replicas: {{.Values.replica}}
+  template: 
+    metadata:
+      labels:
+        app: nginx-deployment
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: nginx
+#        image: nginx:{{.Values.tag}}
+        image: nginx:{{.Values.tag}}
+#        image: nginx:1.7.9
+        imagePullPolicy: IfNotPresent
+ #       image: launcher.gcr.io/google/nginx1:{{.Values.tag}}
+        ports:
+        - containerPort: 80

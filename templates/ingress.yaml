@@ -1,0 +1,10 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+spec:
+  selector:
+    app: nginx-deployment 
+  backend:
+    serviceName: nginx-deployment
+    servicePort: 80

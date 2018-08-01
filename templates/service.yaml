@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-deployment
+  labels: 
+    app: nginx-deployment
+spec:
+  selector:
+    app: nginx-deployment
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  externalTrafficPolicy: Cluster
+  sessionAffinity: None
+  type: NodePort
