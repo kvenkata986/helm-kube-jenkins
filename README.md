@@ -1,1 +1,1 @@
-# Continuously delivering applications to Kubernetes using Helm 
+# Continuously delivering Applications to Kubernetes using Helm 
